@@ -7,4 +7,5 @@
 
 
 타이타닉 실습 생존자 예측 모델 생성을 위한 분석용 데이터 셋
-https://right1203.tistory.com/8 참고용
+참고용 url
+https://right1203.tistory.com/8
