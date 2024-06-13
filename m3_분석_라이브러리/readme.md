@@ -35,3 +35,13 @@ print(outcomes)
 import scipy.stats as stats => 통계관련된 모듈
 norm => 정규분포
 stats.norm.cdf(x, y, z) => cdf는 누적분포함수
+
+np.random.normal(평균, 표준편차, pro_cus에 행 갯수([1]이면 열))
+정규분포로 바꿀때 표준편차가 크면 0보다 낮은 숫자가 나올수있다
+
+mu_price, sigma_price = norm.fit(pro_cus['price'])
+pro_cus['price'] = np.random.normal(mu_price, sigma_price, pro_cus.shape[0])
+scipy.stats에 fit 함수로 sigma_price 함수를 뽑았는데 여기서 sigma_price(표준편차)가 높게 나와 random.normal 함수를 썼을때 price가 0 아래로 떨어지는걸 확인했다
+
+pro_cus['price'] = np.random.normal(mu_price, 8500, pro_cus.shape[0])
+그래서 기존에 있던 표준편차보다 낮게 설정해서 price가 0 아래로 안떨어지게 범위를 설정해줌
