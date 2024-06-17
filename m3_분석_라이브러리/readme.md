@@ -46,3 +46,7 @@ scipy.stats에 fit 함수로 sigma_price 함수를 뽑았는데 여기서 sigma_
 
 pro_cus['price'] = np.random.normal(mu_price, 8500, pro_cus.shape[0])
 그래서 기존에 있던 표준편차보다 낮게 설정해서 price가 0 아래로 안떨어지게 범위를 설정해줌
+
+----------------------------------------------------------
+
+20
