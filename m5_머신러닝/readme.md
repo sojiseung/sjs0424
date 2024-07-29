@@ -64,9 +64,20 @@ kmeans = KMeans(n_clusters=3, n_init='auto', random_state=42)
 labels = kmeans.labels_는 클러스터링 알고리즘을 사용하여 데이터 포인트를 클러스터로 분류한 결과를 저장하는데 사용되는데 labels_는 각 데이터포인트가 속한 클러스터의 라벨(번호)를 나타내는 배열입니다.
 
 # 데이터 전처리 : 스케일링과 정규화
-scaler = StandarScaler() : 스케일링과 정규화를 도와주는 standardScaler라는 모듈을 사용
-scaled_data = scaler.fit_transform(data) :
-- 나는
+- scaler = StandarScaler() : 평균을 0으로 설정하고 표준편차를 1 변환시켜주는 모듈을 사
+- scaled_data = scaler.fit_transform(data) :
+  - fit : 데이터의 평균과 표준 편차를 계산합니다.
+  - transform(data) : 계산된 평균과 표준 편차를 사용하여 데이터를 변환합니다.
+  - fit_transform(data) : fit과 transform을 한 번에 수행합니다.
+
+- minmax_scaler = MinMaxScaler() : 정규화를 도와줄 모듈을 사용
+- normalized_data = minmax_scaler.fit_transform(data) : data = np.array([[1,2,3],[4,5,6],[7,8,9]]) 이렇게 생긴 배열을 정규화 시켜서  [[0.  0.  0. ][0.5 0.5 0.5][1.  1.  1. ]]로 바꿔준다.
+- 스케일 통일을 통해 데이터의 각 특징이 동일한 범위를 가지므로 학습 속도가 빨라지고 성능이 향상될 수 있습니다.
+
+- X_train = scaler.fit_transform(X_train) :  fit으로 데이터를 각 특징의 평균과 표준 편차를 계산하고 transform으로 계산된 평균과 표준 편차를 사용하여 X_train에 적용 시킨다.
+- X_test = scaler.transform(X_test) : 위에 fit 메소드에서 계산된 평균과 표준 편차로 X_test를 변환합니다. 참고로 X_test 데이터는 fit 메소드를 통해 평균과 표준 편차를 계산하지 않고 위에 fit_transform 단계에서 계산된 값을 사용하여 변환됩니다.
+
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 # 회귀
 -경사하강법
